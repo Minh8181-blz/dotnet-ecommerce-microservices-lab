@@ -1,0 +1,38 @@
+﻿@using Website.MarketingSite.Extensions
+@using Website.MarketingSite.Models.Dtos
+
+@{
+    var isLoggedIn = User.IsLoggedIn();
+
+    AppUser user = null;
+    if (isLoggedIn)
+    {
+        user = User.GetUser();
+    }
+}
+
+<div id="topHeader" class="site-header">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <div class="left-content d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="/" aria-label="Product">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+            </a>
+            <a class="header-link" href="#">Tour</a>
+            <a class="header-link" href="#">Product</a>
+        </div>
+        <div class="right-content d-flex flex-column flex-md-row justify-content-end">
+            @if (isLoggedIn)
+            {
+                <a class="header-link" href="/orders"><i class="fa fa-shopping-bag"></i>My Orders</a>
+                <a class="header-link" href="#"><i class="fa fa-user-o"></i>My Account</a>
+                <form id="frmLogout" class="d-inline" action="/logout" method="post">
+                    <a class="header-link" href="javascript:void(0);" rel="nofollow"><i class="fa fa-sign-out"></i>Log out</a>
+                </form>
+            }
+            else
+            {
+                <a class="header-link" href="/login"><i class="fa fa-sign-in"></i>Login</a>
+            }
+        </div>
+    </div>
+</div>

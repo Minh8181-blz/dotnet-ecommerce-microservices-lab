@@ -1,0 +1,17 @@
+﻿.login-form {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.login-form h1 {
+    font-size: 28px;
+}
+
+.login-form .desc {
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.login-form label {
+    font-weight: 600;
+}

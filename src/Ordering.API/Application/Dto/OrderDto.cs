@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Ordering.API.Application.Dto
+{
+    public class OrderDto
+    {
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public DateTime CreatedAt { get;  set; }
+        public DateTime LastUpdatedAt { get;  set; }
+        public string Description { get;  set; }
+        public int Status { get; set; }
+        public string StatusText { get; set; }
+        public decimal Amount { get;  set; }
+        public IEnumerable<OrderItemDto> OrderItems { get; set; }
+    }
+}

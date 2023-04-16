@@ -1,0 +1,60 @@
+﻿@using Website.MarketingSite.Models.ViewModels.Orders
+@using Utilities.PlainText
+
+@model OrderViewModel
+
+<div class="container py-sm-2 py-md-5">
+    <div class="pb-5">
+        <h1 class="text-uppercase mb-3">
+            Order <span class="order-num">#@Model.Id</span><span class="status status-@Model.Status">@Model.StatusText</span>
+        </h1>
+        <div class="order-date">@Model.CreatedAt.ToString("dd/MM/yyyy")</div>
+    </div>
+    <div class="details">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="item-info text-center font-weight-normal">Product</th>
+                    <th class="text-right font-weight-normal">Unit Price</th>
+                    <th class="text-right font-weight-normal">Quantity</th>
+                    <th class="text-right font-weight-normal">Subtotal</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex flex-row align-items-center">
+                            <img src="https://via.placeholder.com/80x80" />
+                            <h2 class="item-name pl-md-3">@(!string.IsNullOrEmpty(item.ProductName) ? item.ProductName : "Archived product")</h2>
+                        </div>
+                    </td>
+                    <td class="color-brandred text-right">$@PriceHelper.GetDisplayedPrice(item.UnitPrice)</td>
+                    <td class="text-right">@item.Quantity</td>
+                    <td class="color-brandred text-right font-weight-bold">$@PriceHelper.GetDisplayedPrice(item.UnitPrice * item.Quantity)</td>
+                </tr>
+            }
+            <tr class="summary">
+                <td></td>
+                <td></td>
+                <td class="text-right font-weight-bold">Total</td>
+                <td class="color-brandred text-right font-weight-bold">$@PriceHelper.GetDisplayedPrice(Model.Amount)</td>
+            </tr>
+        </table>
+    </div>
+    @if (Model.StatusText == "awaiting payment")
+    {
+        <div class="d-flex flex-row-reverse">
+            <button id="pay" class="btn btn-pay" data-order-id="@Model.Id">Pay now</button>
+        </div>
+    }
+</div>
+
+@section styles {
+    <link rel="stylesheet" href="~/css/pages/order-details.css" />
+}
+
+@section scripts {
+    <script src="~/js/common/payment.js"></script>
+    <script src="~/js/pages/order-details.js"></script>
+}

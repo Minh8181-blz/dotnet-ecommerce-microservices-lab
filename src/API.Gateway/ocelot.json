@@ -1,0 +1,59 @@
+{
+  "ReRoutes": [
+    {
+      // ordering
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/o/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      // catalog - products
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/p/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    },
+    {
+      // payment
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/pm/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    },
+    {
+      // cart
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6004
+        }
+      ],
+      "UpstreamPathTemplate": "/api/c/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:6400"
+  }
+}

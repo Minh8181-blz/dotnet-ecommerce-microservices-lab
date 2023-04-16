@@ -1,0 +1,30 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  tag: 'Cart_$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Stage Build Cart MS
+  jobs:
+  - job: Build
+    displayName: Build Cart MS
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build .net cart ms
+      inputs:
+        command: build
+        dockerfile: '$(Build.SourcesDirectory)/src/API.Cart/Dockerfile'
+        tags: |
+          $(tag)
+        buildContext: .

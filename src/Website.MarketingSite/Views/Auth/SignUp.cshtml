@@ -1,0 +1,61 @@
+﻿@using Website.MarketingSite.Models.ViewModels.Auth
+@model SignUpViewModel
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="sign-up-form">
+                    <h1 class="text-center mt-2">Create a new account</h1>
+                    <p class="desc text-center mt-1">Please register in order to shop more quickly!</p>
+
+                    <!-- Form -->
+                    <form id="frm_signup" asp-controller="Auth" asp-action="SignUp"
+                          asp-route-returnurl="@ViewData["ReturnUrl"]"
+                          method="post" class="form" role="form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Email Address <span class="required">*</span></label>
+                                    @Html.TextBoxFor(x => x.Email, new { autocomplete = "on", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Email)
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Password <span class="required">*</span></label>
+                                    @Html.PasswordFor(x => x.Password, new { autocomplete = "on", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Password)
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Re-typed Password<span>*</span></label>
+                                    @Html.PasswordFor(x => x.ConfirmPassword, new { autocomplete = "on", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.ConfirmPassword)
+                                    <div id="frm_signup_success_msg" class="d-none text-center mt-2 text-success"></div>
+                                    <div id="frm_signup_error_msg" class="d-none text-center mt-2 text-danger"></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-red">Create account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--/ End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section styles {
+    <link rel="stylesheet" href="~/css/pages/sign-up.css" />
+}
+
+@section scripts {
+    @await Html.PartialAsync("~/Views/Shared/_ValidationScriptsPartial.cshtml")
+    <script src="~/js/pages/sign-up.js"></script>
+}

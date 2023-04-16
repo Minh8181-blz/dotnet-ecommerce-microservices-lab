@@ -1,0 +1,54 @@
+﻿@using Website.MarketingSite.Models.ViewModels.Auth
+@model LoginViewModel
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="login-form">
+                    <h1 class="text-center mt-2">Login</h1>
+                    <p class="desc text-center mt-1">Please login to access your cart and more!</p>
+
+                    <!-- Form -->
+                    <form id="frm_login" asp-controller="Auth" asp-action="Login"
+                          asp-route-returnurl="@ViewData["ReturnUrl"]"
+                          method="post" class="form" role="form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Email Address <span class="required">*</span></label><br/>
+                                    @Html.TextBoxFor(x => x.Email, new { autocomplete = "on", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Email)
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Password <span class="required">*</span></label><br />
+                                    @Html.PasswordFor(x => x.Password, new { autocomplete = "on", @class= "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Password)
+                                    <div id="frm_login_success_msg" class="d-none text-center mt-2 text-success"></div>
+                                    <div id="frm_login_error_msg" class="d-none text-center mt-2 text-danger"></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-red">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--/ End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section styles {
+    <link rel="stylesheet" href="~/css/pages/login.css" />
+}
+
+@section scripts {
+    @await Html.PartialAsync("~/Views/Shared/_ValidationScriptsPartial.cshtml") 
+    <script src="~/js/pages/login.js"></script>
+}

@@ -1,0 +1,57 @@
+﻿.details {
+    font-size: 15px;
+}
+
+.order-date {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.item-info {
+    width: 35%;
+}
+
+.item-name {
+    font-size: 100%;
+    text-transform: none;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.status {
+    border: solid 2px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px 10px;
+    font-style: italic;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.status-1, .status-2, .status-3 {
+    color: #278ff7;
+    border-color: #278ff7;
+}
+
+.status-4, .status-5, .status-8 {
+    color: #18bf7a;
+    border-color: #18bf7a;
+}
+
+.status-6, .status-7 {
+    color: #dc1f1f;
+    border-color: #dc1f1f;
+}
+
+.summary {
+    font-size: 18px;
+}
+
+.btn-pay {
+    color: #ffffff;
+    background-color: #00b1129e;
+    text-transform: uppercase;
+    padding: 10px 30px;
+}

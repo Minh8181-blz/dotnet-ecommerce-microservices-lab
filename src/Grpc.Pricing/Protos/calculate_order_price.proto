@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Pricing.Protos";
+
+package calculate_order_price;
+
+service CalculateOrderPrice {
+  rpc Calculate (OrderViewModel) returns (OrderPriceViewModel);
+}
+
+message OrderViewModel {
+	repeated OrderItem items = 1;
+}
+
+message OrderItem {
+	int32 productId = 1;
+	int32 quantity = 2;
+	double unitPrice = 3;
+}
+
+message OrderPriceViewModel {
+	double totalPrice = 1;
+}

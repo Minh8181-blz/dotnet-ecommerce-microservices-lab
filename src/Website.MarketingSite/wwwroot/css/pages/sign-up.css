@@ -1,0 +1,17 @@
+﻿.sign-up-form {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+    .sign-up-form h1 {
+        font-size: 28px;
+    }
+
+    .sign-up-form .desc {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .sign-up-form label {
+        font-weight: 600;
+    }

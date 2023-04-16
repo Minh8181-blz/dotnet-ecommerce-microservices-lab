@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="IdentityModel" Version="4.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Application.CommunicationStandard\Service.CommunicationStandard.csproj" />
+	  <ProjectReference Include="..\Domain.Base\Domain.Base.csproj" />
+	</ItemGroup>
+
+</Project>

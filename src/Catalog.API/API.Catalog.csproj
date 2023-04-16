@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>f7bf1c69-051e-4630-9748-ab0b9172b337</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210515055026_InitMigration.cs" />
+    <Compile Remove="Migrations\20210515055026_InitMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210615161559_AddMigrationHistory.cs" />
+    <Compile Remove="Migrations\20210615161559_AddMigrationHistory.Designer.cs" />
+    <Compile Remove="Migrations\20210616014855_TestMigration.cs" />
+    <Compile Remove="Migrations\20210616014855_TestMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210616015255_TestMigration1.cs" />
+    <Compile Remove="Migrations\20210616015255_TestMigration1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.12" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="NLog" Version="4.7.7" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.10.0" />
+    <PackageReference Include="SqlKata" Version="2.2.0" />
+    <PackageReference Include="SqlKata.Execution" Version="2.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Base\Application.Base.csproj" />
+    <ProjectReference Include="..\Application.CommunicationStandard\Service.CommunicationStandard.csproj" />
+    <ProjectReference Include="..\Base.API\Base.API.csproj" />
+    <ProjectReference Include="..\Domain.Base\Domain.Base.csproj" />
+    <ProjectReference Include="..\Infrastructure.Base\Infrastructure.Base.csproj" />
+  </ItemGroup>
+
+
+</Project>

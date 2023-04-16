@@ -1,0 +1,45 @@
+﻿.orders {
+    min-height: 200px;
+}
+
+    .orders .page-item .page-link {
+        color: #5f5f5f;
+        border-color: #b1b1b1;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .orders .page-item.active .page-link {
+        color: #fff;
+        background-color: #d10024;
+        border-color: #d10024;
+    }
+
+.order-date-cell {
+    font-size: 13px;
+}
+
+.price-cell {
+    font-weight: 500;
+    font-size: 16px;
+    text-align: right;
+}
+
+.status-cell {
+    font-size: 13px;
+    text-align: right;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.status-1, .status-2, .status-3 {
+    color: #278ff7;
+}
+
+.status-4, .status-5, .status-8 {
+    color: #18bf7a;
+}
+
+.status-6, .status-7 {
+    color: #dc1f1f;
+}

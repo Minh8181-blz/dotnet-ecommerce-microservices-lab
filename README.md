@@ -1,7 +1,29 @@
 # dotnet-ecommerce-microservices-lab
 
-This is a project that stimulates an e-commerce microservices system in real world, being inspired by Microsoft's [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers)
+This project is a stimulation of an e-commerce microservices system in real world, being inspired by Microsoft's [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers). It is my proof of concept about Microservices architecture, Domain Driven Design, Clean architecture and SAGA pattern.
 
-### Overall system architecture
+#### *I hope to see any distribution from anyone for improvement!*
+
+## System scope
+
+The project has implemented the following use cases:
+- Product browsing
+- Shopping cart
+- Customer account registration
+- Checkout with online payment (with Stripe gateway)
+
+## Overall system architecture
+All services all written in .NET Core 3.1, consisting:
+- Catalog & Inventory API Service (.NET Core API)
+- Cart Service (.NET Core API)
+- Ordering Service (.NET Core API)
+- Payment Service (.NET Core API)
+- Identity Service (.NET Core API)
+- Ocelot API Gateway (.NET Core API)
+- Pricing Service (.NET Core GRPC)
+- Marketing Site (.NET Core MVC)
+
+RabbitMQ is the message broker among these services, playing as a means for asynchronous communication and SAGA pattern
+Each service has its own database which is SQL Server database engine.
 
 ![alt text](https://github.com/Minh8181-blz/dotnet-ecommerce-microservices-lab/blob/master/Makta%20Ecommerce.jpeg)

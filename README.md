@@ -31,8 +31,15 @@ Payment service is integrated with **Stripe payment gateway** for customer's ord
 
 ## Applied technical solutions
 ### Event ordering
-todo
-### Idempotence in event processing
-todo
+In microservices system, when an operation occurs on a service, an event is generated and pushed to message broker. Other services interested in those events will subscribe for them and receive messages upon occurences.\
+In most systems, the order which events are generated and processed is vital for maintaining the sanity of business.
+
+By implementing SAGA pattern, events are ensured to be generated in order because they comply to causal ordering law.\
+Turning to event processing, I desired the same thing which is achieved with the help of RabbitMQ. RabbitMQ allows subscriber to consume messages in order if there is only 1 active subscriber and it sets prefetch = 1, batch ack = 1, the ordering is ensured.\
+However, scalability is the pain point of this solution because 2 competing consumers cannot maintain this order. Kafka is a better candidate to solve both ordering and scaling problem with much less effort.
+
 ### Domain Driven Design and Clean Architecture for complex business rules
-todo
+These 2 terms are already very popular, I won't dig deeply down on them. I always keep the following rules in mind when I implement DDD and Clean Architecture:
+- Domain layer does not depend on use-case, infrastructure or framework so it should depend as little as possible on library (general utils library can be an exception)
+- Application represents the use-case, it coordinates the actions of domain layer. It does not depend on infrastructure either. It can delegate some operations to infrastructure layer
+- Infrastructure is where your most of libraries should be installed and configured (e.g: Entity Framework, Redis lib, Stripe SDK...)

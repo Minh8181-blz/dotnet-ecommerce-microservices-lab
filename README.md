@@ -24,7 +24,7 @@ All services all written in .NET Core 3.1, consisting:
 - Marketing Site (.NET Core MVC)
 
 **RabbitMQ** is the message broker among these services, playing as a means for asynchronous communication and SAGA pattern.\
-Each service has its own database which is **SQL Server** database engine.
+Each service has its own database which is **SQL Server** database engine.\
 Payment service is integrated with **Stripe payment gateway** for customer's order payment processing and management.
 
 ![alt text](https://github.com/Minh8181-blz/dotnet-ecommerce-microservices-lab/blob/master/Makta%20Ecommerce.jpeg)

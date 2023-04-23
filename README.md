@@ -1,6 +1,6 @@
 # dotnet-ecommerce-microservices-lab
 
-This project is a stimulation of an e-commerce microservices system in real world, being inspired by Microsoft's [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers). It is my proof of concept about Microservices architecture, Domain Driven Design, Clean architecture and SAGA pattern.
+This project is a simulation of an e-commerce microservices system in real world, being inspired by Microsoft's [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers). It is my proof of concept about Microservices architecture, Domain Driven Design, Clean architecture and SAGA pattern.
 
 #### *I hope to see any distribution from anyone for improvement!*
 

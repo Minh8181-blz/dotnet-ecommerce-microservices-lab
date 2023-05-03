@@ -35,7 +35,7 @@ In microservices system, when an operation occurs on a service, an event is gene
 In most systems, the order which events are generated and processed is vital for maintaining the sanity of business.
 
 By implementing SAGA pattern, events are ensured to be generated in order because they comply to causal ordering law.\
-Turning to event processing, I desired the same thing which is achieved with the help of RabbitMQ. RabbitMQ allows subscriber to consume messages in order if there is only 1 active subscriber and it sets prefetch = 1, batch ack = 1, the ordering is ensured.\
+Turning to event processing, I desired the same thing which is achieved with the help of RabbitMQ. RabbitMQ allows subscriber to consume messages in order if there is only 1 active subscriber, the ordering is ensured.\
 However, scalability is the pain point of this solution because 2 competing consumers cannot maintain this order. Kafka is a better candidate to solve both ordering and scaling problem with much less effort.
 
 ### Domain Driven Design and Clean Architecture for complex business rules
